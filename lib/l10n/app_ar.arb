@@ -1,0 +1,23 @@
+{
+  "@@locale": "ar",
+  "appName": "نظام تقارير العيادة البيطرية",
+  "selectDatabase": "اختر قاعدة البيانات",
+  "selectDatabasePrompt": "الرجاء اختيار قاعدة البيانات التي تريد الاتصال بها",
+  "elanamKhamisMushit": "عيادة الأنعام - خميس مشيط",
+  "elanamBaish": "عيادة الأنعام - بيش",
+  "elanamZapia": "عيادة الأنعام - الظبية",
+  "startDate": "تاريخ البداية",
+  "endDate": "تاريخ النهاية",
+  "confirm": "تأكيد",
+  "selectReportType": "اختر نوع التقرير",
+  "paymentsReport": "تقرير المدفوعات",
+  "clinicReport": "تقرير العيادة",
+  "salesProfitReport": "تقرير المبيعات والأرباح",
+  "expensesReport": "تقرير المصروفات",
+  "allReports": "جميع التقارير",
+  "reportGenerated": "تم إنشاء التقرير بنجاح",
+  "shareReport": "مشاركة التقرير",
+  "viewReport": "عرض التقرير",
+  "downloadReport": "تحميل التقرير",
+  "generatingReport": "جاري إنشاء التقرير..."
+}

@@ -1,0 +1,23 @@
+{
+  "@@locale": "en",
+  "appName": "Veterinary Reports App",
+  "selectDatabase": "Select Database",
+  "selectDatabasePrompt": "Please select the database you want to connect to",
+  "elanamKhamisMushit": "Elnam - Khamis Mushit",
+  "elanamBaish": "Elnam - Baish",
+  "elanamZapia": "Elnam - Zapia",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "confirm": "Confirm",
+  "selectReportType": "Select Report Type",
+  "paymentsReport": "Payments Report",
+  "clinicReport": "Clinic Report",
+  "salesProfitReport": "Sales & Profit Report",
+  "expensesReport": "Expenses Report",
+  "allReports": "All Reports",
+  "reportGenerated": "Report Generated Successfully",
+  "shareReport": "Share Report",
+  "viewReport": "View Report",
+  "downloadReport": "Download Report",
+  "generatingReport": "Generating Report..."
+}
