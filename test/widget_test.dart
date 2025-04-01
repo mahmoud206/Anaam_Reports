@@ -4,27 +4,43 @@
 // utility in the flutter_test package. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:vet_app_reports/main.dart';
+import 'package:mockito/mockito.dart';
+import 'package:vet_reports_app/main.dart';
+import 'mocks.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  late MockMongoService mockMongoService;
+  late MockPdfService mockPdfService;
 
-    // Verify that our counter starts at 0.
+  setUp(() {
+    mockMongoService = MockMongoService();
+    mockPdfService = MockPdfService();
+  });
+
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    await tester.pumpWidget(VetReportsApp(
+      mongoService: mockMongoService,
+      pdfService: mockPdfService,
+    ));
+
+    // Verify initial state
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
+    // Tap '+' button
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
 
-    // Verify that our counter has incremented.
+    // Verify increment
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
 }
+
+
+
+
+
+   
+
