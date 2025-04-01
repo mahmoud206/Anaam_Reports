@@ -6,7 +6,7 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-vet_app_reports:
+  vet_app_reports:
     path: ../vet_app_reports
   flutter:
     sdk: flutter
@@ -33,16 +33,17 @@ vet_app_reports:
   realm: ^1.4.0
   pdfx: ^2.8.0
   uri: ^1.0.0
-  syncfusion_flutter_datepicker: ^21.1.40 # Correct latest version (as of Oct 2023)
+  syncfusion_flutter_datepicker: ^21.1.40
   device_info_plus: ^10.1.2
   libphonenumber_plugin: ^0.3.3
   path_provider: ^2.1.5
-
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  mockito: ^5.4.0
+  build_runner: ^2.4.4
 
 dependency_overrides:
   intl: ^0.20.0
@@ -51,7 +52,6 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/images/
     - assets/animations/
     - assets/fonts/
     - lib/l10n/
