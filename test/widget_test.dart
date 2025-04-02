@@ -22,18 +22,27 @@ void main() {
     // Tap the '+' icon and trigger a frame.
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();*/
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:your_project/main.dart';  // Update with your app's main.dart if needed
 
 void main() {
-  test('Basic test to check if 2 + 2 equals 4', () {
-    var result = 2 + 2;
-    expect(result, 4);
-  });
-}
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build the app and trigger a frame.
+    await tester.pumpWidget(MyApp());
 
+    // Verify that our app starts with a '0' in the counter.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
 
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+}
+
 }
