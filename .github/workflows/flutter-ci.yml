@@ -1,4 +1,4 @@
-name: Flutter Android Build
+name: Flutter CI
 
 on:
   workflow_dispatch: # Manual trigger only (remove if you want auto-trigger)
