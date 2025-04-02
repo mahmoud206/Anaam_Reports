@@ -6,8 +6,6 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  vet_app_reports:
-    path: packages/vet_app_reports
   flutter:
     sdk: flutter
   flutter_localizations:
