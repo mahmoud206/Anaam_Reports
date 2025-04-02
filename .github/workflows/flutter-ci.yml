@@ -9,9 +9,8 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -19,22 +18,48 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.29.0" # Replace with the Flutter version you need
+          flutter-version: "3.29.0"
 
-      - name: Install Dependencies
+      - name: Install Dependencies (with cache)
         run: flutter pub get
 
       - name: Run Tests
         run: flutter test
 
+  build-android:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.29.0"
+
+      - name: Cache Flutter Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: flutter-${{ runner.os }}-${{ hashFiles('pubspec.yaml') }}
+          restore-keys: |
+            flutter-${{ runner.os }}-
+
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+
+      - name: Install Dependencies
+        run: flutter pub get
+
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Build App Bundle
-        run: flutter build appbundle
-
-      - name: Upload build artifacts
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: build-output
-          path: build/app/outputs/flutter-apk/
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
